@@ -1,0 +1,199 @@
+/* Colors ROOT */
+:root{
+  --lightgrey: #DCE3E6;
+  --primary: #363c45;
+  --rightpanel: rgb(104, 118, 150);
+  background: linear-gradient(282deg, rgb(109, 133, 189) 0%, rgba(207,213,221,1) 23%, #363c45 49%);
+  /* --leftpanel: rgb(141,158,197);
+  background: linear-gradient(282deg, rgb(141, 152, 178) 0%, rgba(207,213,221,1) 23%, #839cc1 89%); */
+  --lightblue: #F8EEED;
+  --greenblue: #F8EEED;
+  --beigeish: #dfd8dc;
+  --lightwhite: #EBECEB;
+  --lightpink: #FFE4E2;
+  --blue:#79BEEF;
+  --background:#f1f5f9;
+  --midsection: background: rgb(240,242,249);
+   background: linear-gradient(302deg, rgba(240,242,249,1) 0%, rgb(231, 215, 231) 18%, rgb(227, 237, 245) 42%, rgb(242, 220, 229) 59%, rgb(235, 240, 248) 75%);
+}
+.card-body{
+  background-color: transparent !important;
+}
+h1{
+  font-family: 'Montserrat', sans-serif;
+}
+p{
+  font-family: 'Karla', sans-serif;
+}
+
+/* Sidenav Styling */
+.sidenav {
+  position: initial;
+  z-index: 0;
+  background: #4C7576;
+  /* background: linear-gradient(324deg, rgb(204, 228, 243) 7%, rgb(255, 255, 255) 50%, rgba(128, 152, 167, 0.139) 60%); */
+  width: 21%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  border-top-right-radius: -55px;
+  border-bottom-right-radius: 25px;
+  position: fixed;
+  /* box-shadow:  5px 5px 10px #acacac,
+          -2px -5px 10px #252525; */
+}
+.tax-bracket{
+  font-size: 9px;
+  float: left;
+  margin-left: -7px;
+  margin-top: 20px;
+}
+
+.pfp{
+  background-image: url(./assets/receptionist-pfp.svg);
+  background-repeat: no-repeat;
+  height: 40px !important;
+  margin-top: 9px;
+  width: 40px;
+  margin-left: 10px;
+}
+button{
+  width: 100px !important;
+  font-size: 9px !important;
+}
+.expenses-block{
+border-radius: 50px;
+
+  height: 60vh;
+  width: 90%;
+  float: left;
+  margin-left: 5%;
+}
+.savings-percentage{
+  margin-top: 20px;
+  margin-left: -25px;
+  position: fixed;
+}
+
+.whats-left{
+margin-left: 20px;
+  width: 200px;
+  float: right;
+  margin-top: 30px;
+}
+/* .btn-secondary, .btn{
+  float: left;
+  color: #fff;
+  width: 80px;
+  font-size: 9px;
+  margin-right: 116px;
+  margin-left: 300px;
+  background-color: #6c757d;
+  border-color: #6c757d;
+} */
+.user-profiles{
+  z-index: 999;
+  width: 230px !important;
+  font-size: small;
+  background-color: #f3f3f3;
+  margin-left: -80px;
+
+  border-radius: 20px;
+}
+.welcome-1{
+  color:#ffffff;
+margin-left: -100px; 
+font-size: 19px;
+}
+.welcome-2{
+  font-size: 15px;
+margin-top: -15px;
+margin-left: -30px;
+}
+.badger-logo{
+  background-image: url(./assets/badger.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 70px;
+  width: 70px;
+  float: left;
+  padding: 10px;
+  margin-left: 96px;
+  margin-top: 20px;
+}
+.maincomponent{
+  position: absolute;
+  z-index: 1030;
+  width: 58%;
+  background: #F7FAFC;
+   /* background: linear-gradient(302deg, #3C434D 0%, #3C434D 18%, #3B434E 42%, #3C434D 59%, #3C434D 75%); */
+  height: 100vh;
+  float: left;
+  margin-left:19%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  box-shadow: 10px 30px 30px 10px rgb(0 0 0 / 0.2);
+}
+.total-income {
+  width: 100px;
+  margin-top: 80px;
+  margin-left: -70px;
+  height: 70px;
+}
+.plus-icon{
+  text-align: center;
+  height: 20px !important;
+  width: 20px !important;
+  background-image: url(./assets/crud-actions-page.svg);
+  background-repeat: no-repeat;
+  margin-top: 5px;
+  margin-left: -5px;
+  
+}
+.expenses-name{
+  margin-top: 30px;
+}
+.expense-input{
+  margin-top: -50px;
+  float: right;
+  width: 400px;
+}
+button, .plus-icon{
+  align-content: center;
+  text-align: center;
+  width: 27px;
+  height: 27px;
+  padding: 10px;
+  cursor: pointer;
+  float: right;
+  margin-right: -100px;
+  border-radius: 50px;
+  border: 0px rgb(31, 30, 30);
+  background-color: #363c45;
+}
+.income-h, p{
+  color: white;
+  margin-top: -10px;
+  margin-left: -10px;
+  position: relative;
+  font-size: 18px;
+  letter-spacing: normal;
+  text-align: justify;
+}
+.rightpanel{
+  background-color: #4C7576;
+  width: 27%;
+  height: 100vh;
+  float: right;
+}
+
+
+/* React App Main Block of content Styling*/
+App{
+  padding: 0;
+  margin: 0;
+  background-color: #4C7576;
+}
+
