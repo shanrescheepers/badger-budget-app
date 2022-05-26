@@ -135,7 +135,13 @@ font-family: 'Roboto', sans-serif; */
   margin-right: -100px;
   margin-top: -30px;
 }
-.save-block{
+.tax, .tot-expense, .household{
+  margin-top: 10px;
+}
+.household-whatsleft{
+  margin-top: 80px;
+}
+.save-block, .household-block{
   background-color: #f3f3f3;
   height: 300px;
   width: 300px;
