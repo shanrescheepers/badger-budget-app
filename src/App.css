@@ -15,12 +15,25 @@
   margin-left: 20px;
   margin-top: 20px;
 }
+h1{
+  color: #2b2b2b;
+}
+.maincomponent{
+  background-color: rgb(147, 93, 22);
+}
+
+.welcome-section{
+
+  background-color: aqua;
+}
 /* React App Main Block of content Styling*/
 App{
   padding: 0;
   margin: 0;
-background-image: url(../src/assets/bg.svg);
-height: 100vh;
-width: 100%;
+  background-image: url(../src/assets/bg.svg);
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+
 }
 
