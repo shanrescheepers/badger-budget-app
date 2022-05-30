@@ -12,7 +12,7 @@ function App() {
       {/* <Header /> */}
       <Routes>
         {/* <Route path="/" element={<signin />} /> */}
-        <Route path="/dashboard" element={<Dashboard />} />
+        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         {/* <Route path="/dashboard" element={<editspagr />} /> */}
       </Routes>
       <RightPanel />
