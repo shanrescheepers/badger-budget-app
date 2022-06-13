@@ -10,3 +10,8 @@
   --bodyTextColor: #D9D9D9;
 }
 
+.App {
+  display: grid;
+  grid-template-columns: 25% 75%;
+}
+
