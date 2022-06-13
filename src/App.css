@@ -1,39 +1,12 @@
-.sidenav{
-  background-color: #2b2b2b;
-  width: 10%;
-  height: 100vh;
-
-}
-
-.badger-logo{
-  float: left;
-  height: 100px;
-  width: 100px;
-  background-image: url(../src/assets/badger-logo.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin-left: 20px;
-  margin-top: 20px;
-}
-h1{
-  color: #2b2b2b;
-}
-.maincomponent{
-  background-color: rgb(147, 93, 22);
-}
-
-.welcome-section{
-
-  background-color: aqua;
-}
-/* React App Main Block of content Styling*/
-App{
-  padding: 0;
-  margin: 0;
-  background-image: url(../src/assets/bg.svg);
-  background-size: cover;
-  height: 100vh;
-  width: 100%;
-
+:root {
+  --backgroundColor: #171A32;
+  --secondaryColor: #242746;
+  --primaryButton: #5372C2;
+  --secondaryButton: #E96B9C;
+  --orangeColor: #DD9F65;
+  --pinkVariant: #8F3870;
+  --indicationColor: #6FCDBB;
+  --headingColor: #F7F9FF;
+  --bodyTextColor: #D9D9D9;
 }
 
