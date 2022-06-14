@@ -1,8 +1,9 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+describe("A suite is just a function", function () {
+  var a;
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  it("and so is a spec", function () {
+    a = true;
+
+    expect(a).toBe(true);
+  });
 });
