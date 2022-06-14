@@ -44,7 +44,7 @@
     grid-template-columns: 1fr;
     grid-gap: 4px;
     overflow-y: scroll;
-    height: 65vh;
+    height: 55vh;
 
     &__title {
       color: #ffff;
@@ -55,59 +55,15 @@
     &__card {
       display: grid;
       height: fit-content;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(5, 1fr);
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
       align-items: center;
       grid-gap: 8px;
       margin: 20px;
       padding: 16px;
       background-color: #242746;
       border-radius: 20px;
-      grid-template-areas:
-        "ns ns ns"
-        "gross gross ."
-        "taxb taxb taxb-amount"
-        "net net save"
-        ". . pocket"
-      ;
-
-      &__ns {
-        grid-area: ns;
-        height: 20px;
-      }
-
-      &__gross {
-        grid-area: gross;
-        height: 20px;
-      }
-
-      &__taxb {
-        grid-area: taxb;
-        color: $pink-variant;
-        height: 20px;
-      }
-
-      &__taxb-amount {
-        grid-area: taxb-amount;
-        height: 20px;
-      }
-
-      &__net {
-        grid-area: net;
-        color: $orange-color;
-        height: 20px;
-      }
-
-      &__save {
-        grid-area: save;
-        height: 20px;
-      }
-
-      &__pocket {
-        grid-area: pocket;
-        color: $indication-color;
-        height: 20px;
-      }
+      color: white;
     }
   }
 

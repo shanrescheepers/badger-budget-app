@@ -5,60 +5,118 @@ import { useState } from 'react';
 
 function Income({ householdIncomeData }) {
     // household income data kan nou inkom, maar gaan na parent toe gestuur
-    const [incomeData, setIncomeData] = useState({});
+    const [peopleData, setPeopleData] = useState({});
+    const [incomeData, setIncomeData] = useState({
+        people: []
+    });
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        calculateTax(incomeData.gross)
+
+        let myIncomeData = incomeData.people;
+
+        let person = {
+            name: peopleData.name,
+            surname: peopleData.surname,
+            gross: parseInt(peopleData.gross),
+            taxAmount: calculateTax(peopleData.gross),
+            taxBracket: calculateTaxBracket(peopleData.gross),
+            net: calculateNet(peopleData.gross, calculateTax(peopleData.gross)),
+            savePercentage: parseFloat(peopleData.savePercentage),
+            saveAmount: Math.round((calculateNet(peopleData.gross, calculateTax(peopleData.gross)) * parseFloat(peopleData.savePercentage)) / 100) * 100,
+            afterSavings: Math.round((calculateNet(peopleData.gross, calculateTax(peopleData.gross)) - (calculateNet(peopleData.gross, calculateTax(peopleData.gross)) * parseFloat(peopleData.savePercentage))) / 100) * 100
+        }
+
+        myIncomeData.push(person);
+
+        setIncomeData({
+            people: myIncomeData
+        })
+
+        document.getElementById("personForm").reset();
+        console.log(incomeData);
+        householdIncomeData(incomeData);
     }
 
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        setIncomeData(values => ({ ...values, [name]: value }))
+        setPeopleData(values => ({ ...values, [name]: value }))
     }
 
     const calculateTax = (gross) => {
         var yearlyGross = gross * 12;
-        var yearlyNet = 0;
-
         var taxDiff = 0;
+        var taxAmount = 0;
 
         if (yearlyGross <= 226000) {
             // tax bracket
-            yearlyNet = yearlyGross - (yearlyGross * 0.18);
+            taxAmount = yearlyGross * 0.18;
         } else if (yearlyGross <= 353100) {
             // tax diff, enige iets meer as 226000, alles meer as dit, 26% van dit word getax.
             taxDiff = yearlyGross - 226000;
             taxDiff = taxDiff * 0.26;
-            yearlyNet = yearlyGross - taxDiff - 40680;
+            taxAmount = taxDiff + 40680;
         } else if (yearlyGross <= 488700) {
             // tax diff, enige iets meer as 226000, alles meer as dit, 26% van dit word getax.
             taxDiff = yearlyGross - 353101;
             taxDiff = taxDiff * 0.31;
-            yearlyNet = yearlyGross - taxDiff - 73726;
+            taxAmount = taxDiff + 73726;
         } else if (yearlyGross <= 641400) {
             // tax diff, enige iets meer as 226000, alles meer as dit, 26% van dit word getax.
             taxDiff = yearlyGross - 488700;
             taxDiff = taxDiff * 0.36;
-            yearlyNet = yearlyGross - taxDiff - 115762;
+            taxAmount = taxDiff + 115762;
         } else if (yearlyGross <= 817600) {
             // tax diff, enige iets meer as 226000, alles meer as dit, 26% van dit word getax.
             taxDiff = yearlyGross - 641400;
             taxDiff = taxDiff * 0.39;
-            yearlyNet = yearlyGross - taxDiff - 170734;
+            taxAmount = taxDiff + 170734;
         } else if (yearlyGross <= 1731600) {
             // tax diff, enige iets meer as 226000, alles meer as dit, 26% van dit word getax.
             taxDiff = yearlyGross - 817600;
             taxDiff = taxDiff * 0.41;
-            yearlyNet = yearlyGross - taxDiff - 239452;
+            taxAmount = taxDiff + 239452;
         } else {
             taxDiff = yearlyGross - 1731600;
             taxDiff = taxDiff * 0.45;
-            yearlyNet = yearlyGross - taxDiff - 614192;
+            taxAmount = taxDiff + 614192;
         }
-        console.log(Math.round(yearlyNet / 12 * 100) / 100);
-        return Math.round(yearlyNet / 12 * 100) / 100
+
+        return Math.round(taxAmount / 12 * 100) / 100
+    }
+
+    const calculateTaxBracket = (gross) => {
+        const yearlyGross = gross * 12;
+
+        if (yearlyGross <= 226000) {
+            return 'Category 1';
+        } else if (yearlyGross <= 353100) {
+            return 'Category 2';
+        } else if (yearlyGross <= 488700) {
+            return 'Category 3';
+        } else if (yearlyGross <= 641400) {
+            return 'Category 4';
+        } else if (yearlyGross <= 817600) {
+            return 'Category 5';
+        } else if (yearlyGross <= 1731600) {
+            return 'Category 6';
+        } else {
+            return 'Category 7';
+        }
+    }
+
+    const calculateNet = (gross, taxAmount) => {
+        return gross - taxAmount;
+    }
+
+    const calculateWhatsLeft = () => {
+        var whatsLeft = 0;
+        incomeData.people.forEach(person => {
+            whatsLeft = whatsLeft + person.afterSavings;
+        })
+
+        return whatsLeft;
     }
 
     return (
@@ -67,7 +125,7 @@ function Income({ householdIncomeData }) {
                 <img className='income__header__image' src={logo} />
                 <h1 className='income__header__title'>Budgeting App</h1>
             </div>
-            <form onSubmit={handleSubmit} className='income__add'>
+            <form id='personForm' onSubmit={handleSubmit} className='income__add'>
                 <input name='name' onChange={handleChange} placeholder='Name'></input>
                 <input name='surname' onChange={handleChange} placeholder='Surname'></input>
                 <input onChange={handleChange} name='gross' placeholder='Gross Salary'></input>
@@ -86,18 +144,22 @@ function Income({ householdIncomeData }) {
             </form>
             <div className='income__household'>
                 <h3 className='income__household__title'>Household calculations...</h3>
-                <div className='income__household__card' >
-                    <span className='income__household__card__ns' >Name surname</span>
-                    <span className='income__household__card__gross'>Gross</span>
-                    <span className='income__household__card__taxb'>Tax Bracket: R {calculateTax(incomeData.gross)}</span>
-                    <span className='income__household__card__taxb-amount'>TB R: X</span>
-                    <span className='income__household__card__net'>Net Income: R X</span>
-                    <span className='income__household__card__save'>% Savings</span>
-                    <span className='income__household__card__pocket'>After Savings: R x</span>
-                </div>
+                {incomeData.people.map(person =>
+                    <div className='income__household__card' >
+                        <span className='income__household__card__ns' >{person.name} {person.surname}</span>
+                        <span className='income__household__card__gross'>Salary: R {person.gross}</span>
+                        <span className='income__household__card__taxb'>Paid to Tax: R {person.taxAmount}</span>
+                        <span className='income__household__card__taxb-amount'>Tax Bracket: {person.taxBracket}</span>
+                        <span className='income__household__card__net'>Net Salary: R {person.net}</span>
+                        <span className='income__household__card__save'>Savings %: {person.savePercentage}
+                        </span>
+                        <span className='income__household__card__pocket'>Amount Saved: R {person.saveAmount}</span>
+                        <span className='income__household__card__pocket'>After Savings: R {person.afterSavings}</span>
+                    </div>
+                )}
             </div>
             <div className='income__total'>
-                <span className='income__total__text'>What's Left: RX</span>
+                <span className='income__total__text'>What's Left: R{calculateWhatsLeft()}</span>
             </div>
         </section >
     );
