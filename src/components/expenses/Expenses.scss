@@ -1,0 +1,41 @@
+.expenses {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 8px;
+
+    &__title {}
+
+    &__add {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-gap: 8px;
+    }
+
+    &__heading {}
+
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        &__row {
+            display: grid;
+            grid-template-columns: 80% 20%;
+            grid-template-rows: auto;
+            grid-gap: 8px;
+        }
+    }
+
+    &__remove-btn {
+        display: grid;
+        padding: 8px;
+        justify-content: end;
+    }
+
+    &__total {
+        display: grid;
+        justify-content: left;
+        padding: 8px;
+    }
+}
