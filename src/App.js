@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import Income from './components/income/Income';
 import Expenses from './components/expenses/Expenses';
 import { useState } from 'react';
@@ -11,11 +11,11 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="app">
       <div>
         <Income householdIncomeData={householdIncomeData} />
       </div>
-      <div className='dashboard-grid'>
+      <div className='app__content'>
         <Expenses expensesData={data} />
       </div>
     </div>
