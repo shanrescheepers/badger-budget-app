@@ -1,7 +1,7 @@
 export const calculateTax = (gross) => {
     var yearlyGross = gross * 12;
-    var taxDiff = 0;
-    var taxAmount = 0;
+    var taxDiff = 0.0;
+    var taxAmount = 0.0;
 
     if (yearlyGross <= 226000) {
         // tax bracket
@@ -37,7 +37,7 @@ export const calculateTax = (gross) => {
         taxAmount = taxDiff + 614192;
     }
 
-    return Math.round(taxAmount / 12 * 100) / 100
+    return taxAmount / 12;
 }
 
 export const calculateTaxBracket = (gross) => {
@@ -76,4 +76,12 @@ export const calculateExpenseLumpTotal = (expenses) => {
     });
 
     return totalLumpExpense;
+}
+
+export const calculateSaveAmount = (amount, percentage) => {
+    return amount * percentage;
+}
+
+export const calculateAfterSavings = (net, savings) => {
+    return net - savings;
 }

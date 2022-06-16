@@ -2,7 +2,7 @@ import './Income.scss';
 import logo from '../../assets/badger.svg';
 import React from 'react';
 import { useState } from 'react';
-import { calculateNet, calculateTax, calculateTaxBracket } from '../../calculations/Calculations';
+import { calculateNet, calculateTax, calculateTaxBracket, calculateSaveAmount, calculateAfterSavings } from '../../calculations/Calculations';
 
 export function Income({ householdIncomeData }) {
     // household income data kan nou inkom, maar gaan na parent toe gestuur
@@ -19,13 +19,13 @@ export function Income({ householdIncomeData }) {
         let person = {
             name: peopleData.name,
             surname: peopleData.surname,
-            gross: parseInt(peopleData.gross),
+            gross: parseFloat(peopleData.gross),
             taxAmount: calculateTax(peopleData.gross),
             taxBracket: calculateTaxBracket(peopleData.gross),
             net: calculateNet(peopleData.gross, calculateTax(peopleData.gross)),
             savePercentage: parseFloat(peopleData.savePercentage),
-            saveAmount: Math.round((calculateNet(peopleData.gross, calculateTax(peopleData.gross)) * parseFloat(peopleData.savePercentage)) / 100) * 100,
-            afterSavings: Math.round((calculateNet(peopleData.gross, calculateTax(peopleData.gross)) - (calculateNet(peopleData.gross, calculateTax(peopleData.gross)) * parseFloat(peopleData.savePercentage))) / 100) * 100
+            saveAmount: calculateSaveAmount(calculateNet(peopleData.gross, calculateTax(peopleData.gross)), parseFloat(peopleData.savePercentage)),
+            afterSavings: calculateAfterSavings(calculateNet(peopleData.gross, calculateTax(peopleData.gross)), calculateSaveAmount(calculateNet(peopleData.gross, calculateTax(peopleData.gross)), parseFloat(peopleData.savePercentage)))
         }
 
         myIncomeData.push(person);

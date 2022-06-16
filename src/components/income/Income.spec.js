@@ -1,4 +1,4 @@
-import { calculateNet, calculateTaxBracket } from "../../calculations/Calculations";
+import { calculateNet, calculateSaveAmount, calculateTaxBracket } from "../../calculations/Calculations";
 
 describe("Income tax bracket category positive tests", function () {
     var taxBracket;
@@ -95,3 +95,24 @@ describe("Test NET calculations", function () {
     });
 })
 
+describe("Test after savings calculations", function () {
+    var sampleNetSalary;
+    var sampleSavePercentage;
+
+    beforeAll(function () {
+        sampleNetSalary = 10000;
+        sampleSavePercentage = 0.1;
+    })
+
+    it("Checks saving calculation positive test", function () {
+        var calculatedSaveAmount = calculateSaveAmount(sampleNetSalary, sampleSavePercentage);
+
+        expect(calculatedSaveAmount).toBe(1000);
+    })
+
+    it("Check saving calculation negative test", function () {
+        var calculatedSaveAmount = calculateSaveAmount(sampleNetSalary, sampleSavePercentage);
+
+        expect(calculatedSaveAmount).not.toBe(11000);
+    })
+})
