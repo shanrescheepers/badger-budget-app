@@ -6,14 +6,14 @@ import { useState } from 'react';
 function App() {
   const [data, setData] = useState('');
 
-  const householdIncomeData = (childdata) => {
-    setData(childdata);
+  const householdData = (data) => {
+    setData(data);
   }
 
   return (
     <div className="app">
       <div>
-        <Income householdIncomeData={householdIncomeData} />
+        <Income householdIncomeData={householdData} />
       </div>
       <div className='app__content'>
         <Expenses expensesData={data} />
