@@ -94,3 +94,4 @@ describe("Test NET calculations", function () {
         expect(calculatedNetSalary).toBe(8000);
     });
 })
+

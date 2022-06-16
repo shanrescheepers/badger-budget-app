@@ -57,7 +57,7 @@ export function Income({ householdIncomeData }) {
     return (
         <section className="income">
             <div className='income__header'>
-                <img className='income__header__image' src={logo} />
+                <img alt='app logo' className='income__header__image' src={logo} />
                 <h1 className='income__header__title'>Budgeting App</h1>
             </div>
             <form id='personForm' onSubmit={handleSubmit} className='income__add'>

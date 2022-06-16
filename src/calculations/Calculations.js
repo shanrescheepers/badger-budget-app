@@ -1,5 +1,3 @@
-import { Exception } from "sass";
-
 export const calculateTax = (gross) => {
     var yearlyGross = gross * 12;
     var taxDiff = 0;
@@ -69,4 +67,13 @@ export const calculateTaxBracket = (gross) => {
 
 export const calculateNet = (gross, taxAmount) => {
     return gross - taxAmount;
+}
+
+export const calculateExpenseLumpTotal = (expenses) => {
+    let totalLumpExpense = 0;
+    expenses.forEach(expense => {
+        totalLumpExpense += expense.expenseTotal;
+    });
+
+    return totalLumpExpense;
 }
