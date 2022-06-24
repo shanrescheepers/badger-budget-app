@@ -35,7 +35,6 @@ export function Income({ householdIncomeData }) {
         })
 
         document.getElementById("personForm").reset();
-        console.log(incomeData);
         householdIncomeData(incomeData);
     }
 
