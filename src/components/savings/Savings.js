@@ -1,6 +1,15 @@
+import { useState, useEffect } from 'react';
 import './Savings.scss';
 
 function Savings(incomeData) {
+
+    const [total, setTotal] = useState(0);
+
+    useEffect(() => {
+        if (incomeData.incomeData.people) {
+            setTotal(incomeData.incomeData.people?.reduce((total, current) => total + current.saveAmount, 0));
+        }
+    })
     // vraagteken is n null check, veral as console, cannot read props of undefinded, map, gee. ? se, as hy null is, ignore hom, overlook dit. maar passop, dit is nie altyd altyud null nie.
     return (
         <div className='savings'>
@@ -14,7 +23,7 @@ function Savings(incomeData) {
                     </div>
                 )}
             </div>
-            <h2 className='savings__total'>TOTAL SAVINGS: R{incomeData.incomeData.people?.reduce((total, current) => total + current.saveAmount, 0)}</h2>
+            <h2 className='savings__total'>TOTAL SAVINGS: R{total}</h2>
         </div>
     );
 }

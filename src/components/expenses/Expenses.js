@@ -3,7 +3,7 @@ import { calculateExpenseLumpTotal } from '../../calculations/Calculations';
 import './Expenses.scss';
 
 // household data is dieselfde data wat inkom van Income.ja
-function Expenses() {
+function Expenses({ householdExpenseData }) {
     // handleChange set in die nuwe state, dit wat in getik word. Dit sit dit in die EXPENSE\setExpense state.
     const [expenseList, setExpenseList] = useState({
         // hier is die expense state array, wat objects op mekaar gaan bou
@@ -35,8 +35,8 @@ function Expenses() {
         })
 
         setTotalExpense(calculateExpenseLumpTotal(expenseList.expenses));
-
         document.getElementById("expenseForm").reset();
+        householdExpenseData(calculateExpenseLumpTotal(expenseList.expenses));
     }
 
     const removeExpense = (name) => {
@@ -46,6 +46,7 @@ function Expenses() {
         });
 
         setTotalExpense(calculateExpenseLumpTotal(newExpenseList));
+        householdExpenseData(calculateExpenseLumpTotal(newExpenseList));
     }
 
     const handleChange = (event) => {
