@@ -20,15 +20,14 @@ function App() {
 
   return (
     <div className="app">
-      <div>
+      <div role='incomeComponent'>
         <Income householdIncomeData={householdData} />
       </div>
-      <div className='app__content'>
+      <div role='content' className='app__content'>
         <Expenses householdExpenseData={expenseTotal} />
         <Savings incomeData={data} />
         <Bracket></Bracket>
         <Summary incomeData={data} expenseData={expenseData} />
-
       </div>
     </div>
   );

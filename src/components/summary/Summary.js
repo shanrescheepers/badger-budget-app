@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import './Summary.scss';
 
 function Summary(data) {
@@ -9,7 +8,7 @@ function Summary(data) {
             <div className='summary__content'>
                 <div className='summary__content__row'>
                     <span>Total Gross :</span>
-                    <span className='summary__content__row__amount'>R {data.incomeData.people?.reduce((total, current) => total + current.gross, 0)}</span>
+                    <span className='summary__content__row__amount'>R {data.incomeData?.people?.reduce((total, current) => total + current.gross, 0)}</span>
                 </div>
                 <div className='summary__content__row'>
                     <span>Total Tax Paid :</span>
@@ -33,10 +32,10 @@ function Summary(data) {
                 </div>
             </div>
             {/* ?? 0 --> null-coalescing --> hy kyk of is die waarde wat terugkom n null, as hy n null is, maak dit n 0. As nie, maak dit sy waarde.  */}
-            <h2 className='summary__total'>What's Left: R
-                {isNaN(data.incomeData.people?.reduce((total, current) => total + current.net, 0) - (data.expenseData))
+            <h2 role='summaryTotal' className='summary__total'>What's Left: R
+                {isNaN(data.incomeData?.people?.reduce((total, current) => total + current.net, 0) - (data.expenseData))
                     ? 0
-                    : data.incomeData.people?.reduce((total, current) => total + current.net, 0) - (data.expenseData)}</h2>
+                    : data.incomeData?.people?.reduce((total, current) => total + current.net, 0) - (data.expenseData)}</h2>
         </div>
     );
 }

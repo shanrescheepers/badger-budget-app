@@ -1,9 +1,18 @@
-describe("A suite is just a function", function () {
-  var a;
+import { render, screen } from '@testing-library/react';
+import App from './App';
+// RTL
+test('Check if income component renders', () => {
+  render(<App />);
+  const incomeComponent = screen.getByRole('incomeComponent');
 
-  it("and so is a spec", function () {
-    a = true;
+  expect(incomeComponent).toBeInTheDocument();
+  expect(incomeComponent).toBeVisible();
+});
 
-    expect(a).toBe(true);
-  });
+test('Check if other components render', () => {
+  render(<App />);
+  const contentComponents = screen.getByRole('content');
+
+  expect(contentComponents).toBeInTheDocument();
+  expect(contentComponents).toBeVisible();
 });

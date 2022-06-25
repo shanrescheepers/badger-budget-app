@@ -2,7 +2,7 @@ import './Bracket.scss';
 
 function Bracket() {
     return (
-        <div className='bracket'>
+        <div role='bracketCat' className='bracket'>
             <span className='bracket__title'>Tax Bracket Categories</span>
             <div className='bracket__content'>
                 <div className='bracket__content__row'>

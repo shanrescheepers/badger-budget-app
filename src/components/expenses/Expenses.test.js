@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Expenses from './Expenses'
-
+// RTL
 test('Add button rendered', () => {
     render(<Expenses />);
     const addButtonElement = screen.getByText("ADD");

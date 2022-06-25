@@ -73,7 +73,7 @@ function Expenses({ householdExpenseData }) {
                     </div>
                 )}
             </div>
-            <h2 className='expenses__total'>TOTAL EXPENSES: R{totalExpense}</h2>
+            <h2 role='totalExpense' className='expenses__total'>TOTAL EXPENSES: R{totalExpense}</h2>
         </div >
     );
 }
