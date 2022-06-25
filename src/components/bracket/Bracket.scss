@@ -1,0 +1,40 @@
+.bracket {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 8px;
+    background-color: rgb(250, 240, 158);
+    grid-template-rows: 50px auto;
+    padding: 16px;
+    border-radius: 15px;
+
+    &__title {
+        font-weight: bold;
+        font-size: 32px;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr;
+        height: 70%;
+        grid-gap: 26px;
+
+        &__row {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: auto;
+            height: 20px;
+            grid-gap: 16px;
+
+            &__amount {
+                text-align: end;
+                padding-right: 64px;
+            }
+        }
+    }
+}

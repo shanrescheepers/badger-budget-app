@@ -4,6 +4,7 @@ import Expenses from './components/expenses/Expenses';
 import { useState } from 'react';
 import Savings from './components/savings/Savings';
 import Summary from './components/summary/Summary';
+import Bracket from './components/bracket/Bracket';
 
 function App() {
   const [data, setData] = useState('');
@@ -25,7 +26,7 @@ function App() {
       <div className='app__content'>
         <Expenses householdExpenseData={expenseTotal} />
         <Savings incomeData={data} />
-        <span></span>
+        <Bracket></Bracket>
         <Summary incomeData={data} expenseData={expenseData} />
 
       </div>
