@@ -1,6 +1,7 @@
 .app {
   display: grid;
   grid-template-columns: 25% 75%;
+  background-color: #f3f3f3;
 
   &__content {
     display: grid;

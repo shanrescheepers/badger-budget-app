@@ -2,14 +2,17 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 8px;
-    background-color: palevioletred;
+    background-color: #d87093;
     grid-template-rows: 50px 226px 30px;
     padding: 16px;
     border-radius: 15px;
+    box-shadow: #db86a2 0px 4px 6px 0px;
 
     &__title {
         font-weight: bold;
         font-size: 32px;
+        color: #eae7f6;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
 
     &__grid {

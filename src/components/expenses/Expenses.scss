@@ -5,14 +5,16 @@
     grid-template-columns: 1fr;
     grid-template-rows: 50px 30px 50px 130px 30px;
     grid-gap: 8px;
-    background-color: rgb(169, 211, 247);
+    background-color: #6cd6e4;
     padding: 16px;
     border-radius: 15px;
-
+    box-shadow: #89d7e1 0px 4px 6px 0px;
 
     &__title {
         font-weight: bold;
+        color: #323131;
         font-size: 32px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
 
     &__add {
@@ -20,9 +22,11 @@
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: auto;
         grid-gap: 8px;
+        color: #323131;
     }
 
     &__content {
+        color: #323131;
         display: grid;
         grid-template-columns: 1fr;
         overflow-y: scroll;

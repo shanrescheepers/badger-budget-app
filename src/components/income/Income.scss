@@ -7,7 +7,10 @@
   justify-items: center;
   align-items: start;
   background-color: $background-color;
+  box-shadow: #31284a 0px 4px 6px 2px;
   height: 100vh;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 
   &__header {
     display: grid;

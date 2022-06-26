@@ -1,15 +1,18 @@
 .bracket {
     display: grid;
     grid-template-columns: 1fr;
-    grid-gap: 8px;
-    background-color: rgb(250, 240, 158);
+    grid-gap: 5px;
+    background-color: #7E6AE7;
     grid-template-rows: 50px auto;
-    padding: 16px;
+    padding: 8px;
     border-radius: 15px;
+    box-shadow: #9786ea 0px 4px 6px 0px;
 
     &__title {
         font-weight: bold;
-        font-size: 32px;
+        font-size: 29px;
+        color: #eae7f6;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
 
     &__grid {
@@ -28,7 +31,7 @@
             display: grid;
             grid-template-columns: 50% 50%;
             grid-template-rows: auto;
-            height: 20px;
+            height: 15px;
             grid-gap: 16px;
 
             &__amount {
